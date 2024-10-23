@@ -58,5 +58,4 @@ public class Queue<E> {
         rear = 0;
         size = 0; // Reset size to 0
     }
-
 }
