@@ -3,7 +3,7 @@ package list;
 public class LinkedList<T> {
     private Node headNode;
     private Node topNode;
-    private int size; // Track the size of the list
+    private int size; // Track the size of the list.
 
     public LinkedList() {
         headNode = new Node(); // Placeholder node
@@ -69,6 +69,7 @@ public class LinkedList<T> {
         return size;
     }
 
+    // Node class.
     private class Node {
         private T data;
         private Node next = null;

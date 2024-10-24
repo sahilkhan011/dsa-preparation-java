@@ -1,39 +1,33 @@
-import queue.Queue;
+import list.LinkedList;
 
 public class Test {
     public static void main(String[] args) {
-        Queue<Integer> queue = new Queue<>(5);
+        // Create a LinkedList of Integer type
+        LinkedList<Integer> list = new LinkedList<>();
 
-        // Enqueue elements
-        System.out.println("Enqueuing 1, 2, 3");
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
+        // Add elements at the last
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+        System.out.println("After adding elements at the end:");
+        list.print(); // Output: 10, 20, 30
 
-        // Display size
-        System.out.println("Current size: " + queue.size()); // Output: 3
+        // Add elements at the first
+        list.addFirst(5);
+        System.out.println("\nAfter adding an element at the start:");
+        list.print(); // Output: 5, 10, 20, 30
 
-        // Dequeue elements
-        System.out.println("Dequeued: " + queue.dequeue()); // Output: 1
-        System.out.println("Dequeued: " + queue.dequeue()); // Output: 2
+        // Remove the first element
+        list.removeFirst();
+        System.out.println("\nAfter removing the first element:");
+        list.print(); // Output: 10, 20, 30
 
-        // Current size after dequeue
-        System.out.println("Current size: " + queue.size()); // Output: 1
+        // Remove the last element
+        list.removeLast();
+        System.out.println("\nAfter removing the last element:");
+        list.print(); // Output: 10, 20
 
-        // Enqueue more elements
-        System.out.println("Enqueuing 4, 5, 6");
-        queue.enqueue(4);
-        queue.enqueue(5);
-        queue.enqueue(6);
-        queue.enqueue(7);
-        // queue.enqueue(8); // This will throw an exception since the queue is full
-
-
-
-        // Clear the queue
-        System.out.println("Clearing the queue");
-        queue.clear();
-        System.out.println("Current size after clearing: " + queue.size()); // Output: 0
-
+        // Display the size of the list
+        System.out.println("\nSize of the list: " + list.size()); // Output: 2
     }
 }
