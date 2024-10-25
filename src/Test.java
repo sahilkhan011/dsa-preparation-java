@@ -1,33 +1,38 @@
-import list.LinkedList;
+import list.ArrayList;
 
 public class Test {
     public static void main(String[] args) {
-        // Create a LinkedList of Integer type
-        LinkedList<Integer> list = new LinkedList<>();
+        // Create an ArrayList of Integer type
+        ArrayList<Integer> list = new ArrayList<>(10);
 
-        // Add elements at the last
-        list.addLast(10);
-        list.addLast(20);
-        list.addLast(30);
-        System.out.println("After adding elements at the end:");
-        list.print(); // Output: 10, 20, 30
+        // Test adding elements to the list
+        list.push(1);
+        list.push(2);
+        list.push(3);
 
-        // Add elements at the first
-        list.addFirst(5);
-        System.out.println("\nAfter adding an element at the start:");
-        list.print(); // Output: 5, 10, 20, 30
+        // Print the list
+        list.print(); // Expected output: [1, 2, 3]
 
-        // Remove the first element
-        list.removeFirst();
-        System.out.println("\nAfter removing the first element:");
-        list.print(); // Output: 10, 20, 30
+        // Test removing an element
+        list.remove(1); // Removes the element at index 1 (value 2)
 
-        // Remove the last element
-        list.removeLast();
-        System.out.println("\nAfter removing the last element:");
-        list.print(); // Output: 10, 20
+        // Print the list again
+        list.print(); // Expected output: [1, 3]
 
-        // Display the size of the list
-        System.out.println("\nSize of the list: " + list.size()); // Output: 2
+        // Test finding an index
+        int index = list.indexOf(3);
+        System.out.println("Index of 3: " + index); // Expected output: Index of 3: 1
+
+        // Test pulling (removing the last element)
+        list.pull();
+
+        // Print the list after pulling
+        list.print(); // Expected output: [1]
+
+        // Test pulling again
+        list.pull();
+
+        // Print the list after another pull
+        list.print(); // Expected output: []
     }
 }
