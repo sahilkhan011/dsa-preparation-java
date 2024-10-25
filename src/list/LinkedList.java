@@ -1,7 +1,7 @@
 package list;
 
 public class LinkedList<T> {
-    private Node headNode;
+    private final Node headNode;
     private Node topNode;
     private int size; // Track the size of the list.
 

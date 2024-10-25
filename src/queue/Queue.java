@@ -13,7 +13,6 @@ public class Queue<E> {
         front = 0;
         rear = 0;
         items = (E[]) new Object[maxSize];
-
     }
 
     public void enqueue(E item){

@@ -7,6 +7,7 @@ public class StackWithArray <E> {
     E[] items;
     private int top;
 
+    @SuppressWarnings("unchecked") // Suppress unchecked cast warning
     public StackWithArray(int size) {
         maxSize = size;
         top = -1;
