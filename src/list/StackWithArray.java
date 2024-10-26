@@ -48,7 +48,4 @@ public class StackWithArray <E> {
     public boolean isEmpty(){
         return top == -1;
     }
-
-
-
 }

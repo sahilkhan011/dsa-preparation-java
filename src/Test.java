@@ -1,38 +1,38 @@
-import list.ArrayList;
+import list.StackWithArray;
+
+import java.util.EmptyStackException;
 
 public class Test {
     public static void main(String[] args) {
-        // Create an ArrayList of Integer type
-        ArrayList<Integer> list = new ArrayList<>(10);
+        // Create a stack with a maximum size of 5
+        StackWithArray<Integer> stack = new StackWithArray<>(5);
 
-        // Test adding elements to the list
-        list.push(1);
-        list.push(2);
-        list.push(3);
+        // Test pushing elements onto the stack
+        System.out.println("Pushing elements onto the stack:");
+        for (int i = 1; i <= 5; i++) {
+            stack.push(i);
+            System.out.println("Pushed: " + i);
+        }
 
-        // Print the list
-        list.print(); // Expected output: [1, 2, 3]
+        // Try pushing an element onto a full stack
+        System.out.println("Attempting to push onto a full stack:");
+        stack.push(6); // This should print a message indicating the stack is full.
 
-        // Test removing an element
-        list.remove(1); // Removes the element at index 1 (value 2)
+        // Test peeking the top element
+        System.out.println("Top element (peek): " + stack.peek());
 
-        // Print the list again
-        list.print(); // Expected output: [1, 3]
+        // Test popping elements from the stack
+        System.out.println("Popping elements from the stack:");
+        while (!stack.isEmpty()) {
+            System.out.println("Popped: " + stack.pop());
+        }
 
-        // Test finding an index
-        int index = list.indexOf(3);
-        System.out.println("Index of 3: " + index); // Expected output: Index of 3: 1
-
-        // Test pulling (removing the last element)
-        list.pull();
-
-        // Print the list after pulling
-        list.print(); // Expected output: [1]
-
-        // Test pulling again
-        list.pull();
-
-        // Print the list after another pull
-        list.print(); // Expected output: []
+        // Try popping from an empty stack
+        System.out.println("Attempting to pop from an empty stack:");
+        try {
+            stack.pop(); // This should throw an EmptyStackException.
+        } catch (EmptyStackException e) {
+            System.out.println("Caught exception: " + e);
+        }
     }
 }
