@@ -1,4 +1,4 @@
-import list.StackWithArray;
+import stack.StackWithArray;
 
 import java.util.EmptyStackException;
 
