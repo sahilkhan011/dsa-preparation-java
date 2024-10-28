@@ -1,5 +1,4 @@
 package sorting;
-
 import java.util.Arrays;
 
 public class MergeSort {
@@ -8,7 +7,6 @@ public class MergeSort {
         System.out.println("Before Sorting: " + Arrays.toString(arr));
         mergeSort(arr,0,arr.length - 1);
         System.out.println("After Sorting: " + Arrays.toString(arr));
-
     }
 
     private static void mergeSort(int[] arr, int l, int r) {

@@ -1,6 +1,4 @@
 package sorting;
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class QuickSort {
@@ -48,7 +46,6 @@ public class QuickSort {
 
             //System.out.println("Swapping "+arr[i+1]+" with "+ arr[high] +", Array : " + Arrays.toString(arr));
 
-
             int temp = arr[i + 1];
             arr[i + 1] = arr[high];
             arr[high] = temp;
@@ -56,9 +53,10 @@ public class QuickSort {
             //System.out.println("Now  Array : " + Arrays.toString(arr));
 
         }
-
         return i + 1; // Return the pivot index
 
+        // Reference Video :
         // https://youtube.com/shorts/-5cEMbsyMgs?si=Xe2guUQVBlww3FUz
+
     }
 }

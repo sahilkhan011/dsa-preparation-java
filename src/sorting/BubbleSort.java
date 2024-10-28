@@ -1,5 +1,4 @@
 package sorting;
-
 import java.util.Arrays;
 
 public class BubbleSort {
@@ -8,7 +7,6 @@ public class BubbleSort {
         System.out.println("Before Sorting : "+ Arrays.toString(arr));
         bubbleSort(arr);
         System.out.println("After Sorting : "+ Arrays.toString(arr));
-
     }
 
     private static void bubbleSort(int[] arr) {
@@ -32,6 +30,4 @@ public class BubbleSort {
             }
         }
     }
-
-
 }

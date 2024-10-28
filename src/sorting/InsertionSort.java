@@ -8,7 +8,6 @@ public class InsertionSort {
         System.out.println("Before Sorting : "+ Arrays.toString(arr));
         insertionSort(arr);
         System.out.println("After Sorting : "+ Arrays.toString(arr));
-
     }
 
     private static void insertionSort(int[] arr) {
@@ -27,5 +26,4 @@ public class InsertionSort {
             arr[j + 1] = key;
         }
     }
-
 }
