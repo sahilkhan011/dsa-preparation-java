@@ -3,7 +3,6 @@ package searching;
 public class LinearSearch {
     public static void main(String[] args) {
         int[] nums = {5, 7, 8, 11, 15, 16};
-
         int target = 11;
         int res = linearSearch(nums, target);
 

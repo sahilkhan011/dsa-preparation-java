@@ -30,7 +30,6 @@ public class BinarySearch {
                 right = mid - 1; // Target is in the left half
             }
         }
-
         return -1; // Target not found
     }
 
