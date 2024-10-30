@@ -1,5 +1,4 @@
 package searching;
-
 public class BinarySearch {
     public static void main(String[] args) {
         int[] nums = {5, 7, 8, 11, 15, 16};
@@ -23,11 +22,11 @@ public class BinarySearch {
 
             // Compare middle element with target
             if (nums[mid] == target) {
-                return mid; // Target found at index mid
+                return mid; // Target found at index mid.
             } else if (nums[mid] < target) {
-                left = mid + 1; // Target is in the right half
+                left = mid + 1; // Target is in the right half.
             } else {
-                right = mid - 1; // Target is in the left half
+                right = mid - 1; // Target is in the left half.
             }
         }
         return -1; // Target not found
