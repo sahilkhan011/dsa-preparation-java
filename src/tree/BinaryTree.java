@@ -44,6 +44,30 @@ public class BinaryTree<E extends Comparable<E>> {
         }
     }
 
+    public void preorder() {
+        preorderRec(root);
+    }
+
+    private void preorderRec(Node<E> node) {
+        if (node != null) {
+            System.out.println(node.data); // Visit data
+            inorderRec(node.left);   // Visit left subtree
+            inorderRec(node.right);  // Visit right subtree
+        }
+    }
+
+    public void postorder() {
+        preorderRec(root);
+    }
+
+    private void postorderRec(Node<E> node) {
+        if (node != null) {
+            inorderRec(node.left);   // Visit left subtree
+            inorderRec(node.right);  // Visit right subtree
+            System.out.println(node.data); // Visit data
+        }
+    }
+
 
     private static class Node<E> {
         Node<E> left;
