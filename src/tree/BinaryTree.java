@@ -32,38 +32,38 @@ public class BinaryTree<E extends Comparable<E>> {
         return node; // Return the unchanged node pointer
     }
 
-    public void inorder() {
-        inorderRec(root);
+    public void inOrder() {
+        inOrderRec(root);
     }
 
-    private void inorderRec(Node<E> node) {
+    private void inOrderRec(Node<E> node) {
         if (node != null) {
-            inorderRec(node.left);   // Visit left subtree
+            inOrderRec(node.left);   // Visit left subtree
             System.out.println(node.data); // Visit data
-            inorderRec(node.right);  // Visit right subtree
+            inOrderRec(node.right);  // Visit right subtree
         }
     }
 
-    public void preorder() {
-        preorderRec(root);
+    public void preOrder() {
+        preOrderRec(root);
     }
 
-    private void preorderRec(Node<E> node) {
+    private void preOrderRec(Node<E> node) {
         if (node != null) {
             System.out.println(node.data); // Visit data
-            inorderRec(node.left);   // Visit left subtree
-            inorderRec(node.right);  // Visit right subtree
+            preOrderRec(node.left);   // Visit left subtree
+            preOrderRec(node.right);  // Visit right subtree
         }
     }
 
-    public void postorder() {
-        preorderRec(root);
+    public void postOrder() {
+        postOrderRec(root);
     }
 
-    private void postorderRec(Node<E> node) {
+    private void postOrderRec(Node<E> node) {
         if (node != null) {
-            inorderRec(node.left);   // Visit left subtree
-            inorderRec(node.right);  // Visit right subtree
+            postOrderRec(node.left);   // Visit left subtree
+            postOrderRec(node.right);  // Visit right subtree
             System.out.println(node.data); // Visit data
         }
     }
