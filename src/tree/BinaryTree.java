@@ -1,9 +1,8 @@
 package tree;
-
-public class BinaryTree<E extends Comparable<E>> {
+public class BinaryTree {
 
     private int size;
-    private Node<E> root;
+    private Node root;
 
     public BinaryTree() {
         this.size = 0;
@@ -14,19 +13,19 @@ public class BinaryTree<E extends Comparable<E>> {
         return size;
     }
 
-    public void insert(E item) {
+    public void insert(int item) {
         root = insertRec(root, item); // always return root.
     }
 
     // new method to achieve recursion and create tree data structure
-    private Node<E> insertRec(Node<E> node, E data) {
+    private Node insertRec(Node node, int data) {
         if (node == null) {
             size++; // Increment size when a new node is added
-            return new Node<>(data);
+            return new Node(data);
         }
-        if (data.compareTo(node.data) < 0) {
+        if (data < node.data) {
             node.left = insertRec(node.left, data);
-        } else if (data.compareTo(node.data) > 0) {
+        } else if (data > node.data) {
             node.right = insertRec(node.right, data);
         }
         return node; // Return the unchanged node pointer
@@ -36,7 +35,7 @@ public class BinaryTree<E extends Comparable<E>> {
         inOrderRec(root);
     }
 
-    private void inOrderRec(Node<E> node) {
+    private void inOrderRec(Node node) {
         if (node != null) {
             inOrderRec(node.left);   // Visit left subtree
             System.out.println(node.data); // Visit data
@@ -48,7 +47,7 @@ public class BinaryTree<E extends Comparable<E>> {
         preOrderRec(root);
     }
 
-    private void preOrderRec(Node<E> node) {
+    private void preOrderRec(Node node) {
         if (node != null) {
             System.out.println(node.data); // Visit data
             preOrderRec(node.left);   // Visit left subtree
@@ -60,7 +59,7 @@ public class BinaryTree<E extends Comparable<E>> {
         postOrderRec(root);
     }
 
-    private void postOrderRec(Node<E> node) {
+    private void postOrderRec(Node node) {
         if (node != null) {
             postOrderRec(node.left);   // Visit left subtree
             postOrderRec(node.right);  // Visit right subtree
@@ -68,13 +67,31 @@ public class BinaryTree<E extends Comparable<E>> {
         }
     }
 
+    public boolean search(int item) {
+        return searchRec(root, item);
+    }
 
-    private static class Node<E> {
-        Node<E> left;
-        Node<E> right;
-        E data;
+    private boolean searchRec(Node node, int data) {
+        if (node == null) {
+            return false; // Base case: not found
+        }
+        if (data == node.data) {
+            return true; // Found the item
+        }
+        if (data < node.data) {
+            return searchRec(node.left, data); // Search in left subtree
+        } else {
+            return searchRec(node.right, data); // Search in right subtree
+        }
+    }
 
-        public Node(E data) {
+
+    private static class Node {
+        Node left;
+        Node right;
+        int data;
+
+        public Node(int data) {
             this.data = data;
         }
     }
