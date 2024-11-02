@@ -85,6 +85,47 @@ public class BinaryTree {
         }
     }
 
+    public void delete(int item) {
+        root = deleteRec(root, item);
+    }
+
+    private Node deleteRec(Node node, int data) {
+        if (node == null) {
+            return null; // Base case: not found
+        }
+
+        // Recur down the tree
+        if (data < node.data) {
+            node.left = deleteRec(node.left, data); // Search in left subtree
+        } else if (data > node.data) {
+            node.right = deleteRec(node.right, data); // Search in right subtree
+        } else {
+            // Node with only one child or no child
+            if (node.left == null) {
+                return node.right; // Node with one child (right)
+            } else if (node.right == null) {
+                return node.left; // Node with one child (left)
+            }
+
+            // Node with two children: Get the inorder successor (smallest in the right subtree)
+            node.data = minValue(node.right); // Replace with its inorder successor
+
+            // Delete the inorder successor
+            node.right = deleteRec(node.right, node.data);
+        }
+        return node; // Return the unchanged node pointer
+    }
+
+    private int minValue(Node node) {
+        int minv = node.data;
+        while (node.left != null) {
+            minv = node.left.data;
+            node = node.left;
+        }
+        return minv;
+    }
+
+
 
     private static class Node {
         Node left;
