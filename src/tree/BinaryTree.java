@@ -125,6 +125,27 @@ public class BinaryTree {
         return minv;
     }
 
+    public boolean isBST() {
+        return isBSTUtil(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBSTUtil(Node node, int min, int max) {
+        // An empty tree is a BST
+        if (node == null) {
+            return true;
+        }
+
+        // Check if the current node's value violates the min/max constraint
+        if (node.data <= min || node.data >= max) {
+            return false;
+        }
+
+        // Recursively check the left and right subtrees with updated constraints
+        return isBSTUtil(node.left, min, node.data) &&
+                isBSTUtil(node.right, node.data, max);
+    }
+
+
 
 
     private static class Node {
