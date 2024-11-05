@@ -2,8 +2,8 @@ package string;
 
 public class LargestOddNumberProblem {
     public static void main(String[] args) {
-        String revString = largestOddNumber("4568954");
-        System.out.println(revString);
+        String res = largestOddNumber("4568954");
+        System.out.println(res);
     }
     public static String largestOddNumber(String num) {
         for(int i = num.length()-1; i >= 0; i--){
