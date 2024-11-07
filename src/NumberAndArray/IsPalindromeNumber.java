@@ -1,4 +1,4 @@
-package Number;
+package NumberAndArray;
 
 public class IsPalindromeNumber {
     public static void main(String[] args) {
