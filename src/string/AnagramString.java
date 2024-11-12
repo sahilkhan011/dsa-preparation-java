@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 public class AnagramString {
     public static void main(String[] args) {
-        Boolean b = isAnagramUsingSet("CAT","TAC");
+        Boolean b = isAnagrams("CAT","TAC");
         System.out.println(b);
     }
 
