@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class MostFrequentInArray {
     public static void main(String[] args) {
-        int ans = maxFrequency(new int[]{1,4,8,13},5);
-        int ans1 = maxFrequency(new int[]{1},5);
-        System.out.println(ans1);
+        int ans = maxFrequencySolution1(new int[]{1,4,8,13},5);
+        int ans1 = maxFrequencySolution2(new int[]{1,4,8,13},5);
+        System.out.println(ans+":"+ans1);
     }
 
     // this problem is solved using sliding window.
@@ -15,7 +15,7 @@ public class MostFrequentInArray {
     // whenever need goes to greater than k.
     // we reduce need and increase left pointer (j), until need is equal or less than k
 
-    public static int maxFrequency(int[] nums, int k) {
+    public static int maxFrequencySolution1(int[] nums, int k) {
         Arrays.sort(nums);
         int ans=1;
         long need = 0;
@@ -33,4 +33,20 @@ public class MostFrequentInArray {
         }
         return ans;
     }
+
+    public static int maxFrequencySolution2(int[] num, int k){
+        Arrays.sort(num);
+        int ans = 1;
+        int l =0;
+        long total = 0;
+        for (int i = 0; i < num.length; i++) {
+            total += (long) num[i];
+            while(total+k < (long) num[i]*(i-l+1)){
+                total -= (long) num[l++];
+            }
+            ans = Math.max(ans, i-l+1);
+        }
+        return ans;
+    }
+
 }
