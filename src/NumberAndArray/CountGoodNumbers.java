@@ -2,26 +2,29 @@ package NumberAndArray;
 
 public class CountGoodNumbers {
 
-    // Predefined sets for valid digits
-    private static final int[] EVEN_DIGITS = {0, 2, 4, 6, 8};
-    private static final int[] ODD_PRIME_DIGITS = {2, 3, 5, 7};
-
-    public static void main(String[] args) {
-        int n = 4; // Length of the number
-        long count = countGoodNumbers(n);
-        System.out.println("Count of good numbers of length " + n + ": " + count);
+    static int mod = 1000000007;
+    public static long pow(int x,long y)
+    {
+        if(y==0)
+            return 1;
+        long ans=pow(x,y/2);
+        ans*=ans;
+        ans%=mod;
+        if(y%2==1)
+            ans*=x;
+        ans%=mod;
+        return ans;
+    }
+    public static int countGoodNumbers(long n) {
+        long odd=n/2,even=(n+1)/2;
+        long ans=   (pow(5,even)*pow(4,odd))%mod;
+        return (int)ans;
     }
 
-    public static long countGoodNumbers(int n) {
-        long evenCount = (n + 1) / 2; // Number of even index positions
-        long oddCount = n / 2;        // Number of odd index positions
-
-        // Calculate total possibilities:
-        // - 5 choices for each even index (0, 2, 4, 6, 8)
-        // - 4 choices for each odd index (2, 3, 5, 7)
-        long totalGoodNumbers = (long) Math.pow(5, evenCount) * (long) Math.pow(4, oddCount);
-
-        return totalGoodNumbers;
+    public static void main(String[] args) {
+        int n = 5; // Length of the number
+        long count = countGoodNumbers(n);
+        System.out.println("Count of good numbers of length " + n + ": " + count);
     }
 }
 
