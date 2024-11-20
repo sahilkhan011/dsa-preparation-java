@@ -34,4 +34,31 @@ public class LongestPalindromeSubString {
         }
         return right - left - 1; // Length of the palindrome
     }
+
+    private static boolean isPalindrome(String str, int start,int end){
+        while(end>start){
+            if(str.charAt(start)!=str.charAt(end)){
+                return false;
+            }
+            start++;
+            end++;
+        }
+        return true;
+    }
+    private static String longestPalindromeSecondSolution(String str){
+        int max = 0,start = 0,end = 0;
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i; j < str.length(); j++) {
+                if(isPalindrome(str,i,j)){
+                    if(j-i+1 > max){
+                        max = j-i+1;
+                        start = i;
+                        end = j;
+                    }
+                }
+            }
+        }
+        return str.substring(start,end+1);
+    }
+
 }
