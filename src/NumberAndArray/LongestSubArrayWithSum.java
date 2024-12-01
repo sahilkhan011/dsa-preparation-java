@@ -9,6 +9,7 @@ public class LongestSubArrayWithSum {
         System.out.println(ans);
     }
 
+    // this solution work in negative number case also.
     private static int longestSubArrayWithSum(int[] arr, int k) {
         HashMap<Long,Integer> map = new HashMap<>();
         long currentSum =0;
@@ -38,7 +39,10 @@ public class LongestSubArrayWithSum {
         }
         return maxLen;
     }
-    public static int longestSubArrayWithSumSecond(int []a, long k) {
+
+    // this solution is best for positive number case.
+    // it doesn't work in negative case.
+    public static int getLongestSubarray(int []a, long k) {
         int n = a.length; // size of the array.
 
         int left = 0, right = 0; // 2 pointers
@@ -64,4 +68,5 @@ public class LongestSubArrayWithSum {
 
         return maxLen;
     }
+
 }
