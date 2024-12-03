@@ -1,5 +1,6 @@
 package NumberAndArray;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class TwoSumFromArray {
@@ -26,5 +27,20 @@ public class TwoSumFromArray {
         }
         return new int[]{};
     }
+
+    public static int[] twoSumUsingPointer(int n, int []arr, int target) {
+        Arrays.sort(arr);
+        int left = 0, right = n - 1;
+        while (left < right) {
+            int sum = arr[left] + arr[right];
+            if (sum == target) {
+                return new int[]{left,right};
+            } else if (sum < target) left++;
+            else right--;
+        }
+        return new int[]{};
+    }
+
+
 }
 
