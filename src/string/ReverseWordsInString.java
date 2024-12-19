@@ -7,8 +7,37 @@ public class ReverseWordsInString {
     public static void main(String[] args) {
         String str = "Hello This is a String";
         System.out.println(str);
-        String revStr = reverseWordsInString(str);
+        String revStr = reverseWordsInStringSecond(str);
         System.out.println(revStr);  // Output: "String a is This Hello"
+    }
+
+    public static String reverseWordsInStringSecond(String str){
+            StringBuilder ans = new StringBuilder();
+            StringBuilder tempWord = new StringBuilder();
+
+            for (char c : str.trim().toCharArray()) {
+                if (c != ' ') {
+                    tempWord.append(c);  // Build the current word
+                } else {
+                    if (!tempWord.isEmpty()) {  // Avoid appending extra spaces
+
+                        ans.insert(0,tempWord);
+                        if (!ans.isEmpty()) {  // Add a space only if it's not the first word
+                            ans.insert(0," ");
+                        }
+                        tempWord = new StringBuilder();  // Reset tempWord for the next word
+                    }
+                }
+            }
+
+            // Append the last word if there's one
+            if (!tempWord.isEmpty()) {
+                ans.insert(0,tempWord);
+            }
+
+            return ans.toString();
+
+
     }
 
     private static String reverseWordsInString(String str) {
