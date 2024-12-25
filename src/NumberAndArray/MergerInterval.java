@@ -4,7 +4,7 @@ import java.util.*;
 public class MergerInterval {
     public int[][] merge(int[][] intervals) {
         // Step 1: Sort intervals by the start time
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
 
         List<int[]> list = new ArrayList<>();
 
