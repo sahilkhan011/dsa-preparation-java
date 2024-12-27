@@ -34,7 +34,7 @@ public class MergeTwoSortedArrays {
         long[] arr1 = {1, 4, 8, 10};
         long[] arr2 = {2, 3, 9};
         int n = 4, m = 3;
-        mergeSolutionOne(arr1, arr2, n, m);
+        merge(arr1, arr2, n, m);
         System.out.println("The merged arrays are:");
         System.out.print("arr1[] = ");
         for (int i = 0; i < n; i++) {
