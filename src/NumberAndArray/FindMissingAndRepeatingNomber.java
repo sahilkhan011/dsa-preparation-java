@@ -4,7 +4,7 @@ public class FindMissingAndRepeatingNomber {
 
     public static int[] betterSolution(int[] a) {
         int n = a.length; // size of the array
-        int repeating = -1, missing = -1;
+        int repeating = -1;
         int sum = 0;
 
         // Frequency array to count occurrences
@@ -21,7 +21,7 @@ public class FindMissingAndRepeatingNomber {
         int expectedSum = n * (n + 1) / 2;
 
         // Find the missing number
-        missing = expectedSum - (sum - repeating);
+        int missing = expectedSum - (sum - repeating);
 
         // Return the results
         int[] ans = {repeating, missing};
