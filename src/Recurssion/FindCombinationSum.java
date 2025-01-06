@@ -28,7 +28,7 @@ public class FindCombinationSum {
             ds.add(arr[ind]);
             // Recur with the same index (since we can reuse the same number)
             findCombinations(ind, arr, target - arr[ind], ans, ds);
-            ds.remove(ds.size() - 1);  // Backtrack
+            ds.removeLast();  // Backtrack
         }
 
         // Exclude the current element and move to the next index

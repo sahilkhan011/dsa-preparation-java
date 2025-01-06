@@ -13,7 +13,7 @@ public class FindCombinationSumTwo {
 
             ds.add(arr[i]);
             findCombinations(i + 1, arr, target - arr[i], ans, ds);
-            ds.remove(ds.size() - 1);
+            ds.removeLast();
         }
     }
     public static List < List < Integer >> combinationSum2(int[] candidates, int target) {
