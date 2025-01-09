@@ -21,6 +21,20 @@ public class GenerateParenthesis {
         generate(openCount,closeCount+1,n,ds+")",ans);
     }
 
+    // second solution
+    public void generate2(int openCount,int closeCount,int n,String ds, List<String> ans){
+        if(ds.length() == n*2){
+            ans.add(ds);
+            return;
+        }
+        if(openCount < n){
+            generate2(openCount+1,closeCount,n,ds+"(",ans);
+        }
+        if(closeCount < openCount){
+            generate2(openCount,closeCount+1,n,ds+")",ans);
+        }
+    }
+
     public static void main(String[] args) {
         GenerateParenthesis obj = new GenerateParenthesis();
         List<String> strList = obj.generateParenthesis(3);
