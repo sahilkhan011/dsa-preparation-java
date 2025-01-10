@@ -17,11 +17,15 @@ public class RotateMatrixImage {
     private static int[][] rotateImage(int[][] arr) {
         int n = arr.length;
         // reverse columns
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n/2; j++) {
-                int temp = arr[j][i];
-                arr[j][i] = arr[n-1-j][i];
-                arr[n-1-j][i] = temp;
+        for (int col = 0; col < n; col++) {
+            int i = 0;
+            int j = n-1;
+            while (i<j) {
+                int temp = arr[i][col];
+                arr[i][col] = arr[j][col];
+                arr[j][col] = temp;
+                i++;
+                j--;
             }
         }
 
