@@ -1,9 +1,9 @@
 package NumberAndArray;
 
-public class RotateMatrix {
+public class RotateMatrixImage {
     public static void main(String args[]) {
         int arr[][] =  {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        int rotated[][] = rotate(arr);
+        int rotated[][] = rotateImage(arr);
         System.out.println("Rotated Image");
         for (int i = 0; i < rotated.length; i++) {
             for (int j = 0; j < rotated.length; j++) {
@@ -14,20 +14,20 @@ public class RotateMatrix {
 
     }
 
-    private static int[][] rotate(int[][] arr) {
+    private static int[][] rotateImage(int[][] arr) {
         int n = arr.length;
-        int[][] ans = new int[n][n];
+        // reverse columns
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                ans[j][n-i-1] = arr[i][j];
+            for (int j = 0; j < n/2; j++) {
+                int temp = arr[j][i];
+                arr[j][i] = arr[n-1-j][i];
+                arr[n-1-j][i] = temp;
             }
         }
-        return ans;
-    }
-    private static int[][] rotateOptimalSolution(int[][] arr) {
-        int n = arr.length;
+
+        // transpose matrix
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+            for (int j = i; j < n; j++) {
                 int temp = 0;
                 temp = arr[i][j];
                 arr[i][j] = arr[j][i];
