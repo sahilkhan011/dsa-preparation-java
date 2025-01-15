@@ -1,4 +1,6 @@
-public class MyClass {
+package Recurssion;
+
+public class RecursionsIntro {
     public static void main(String[] args) {
         recursion(0,100);
         printTable(1,5);
