@@ -27,4 +27,13 @@ public class LongestCommonPrefix {
         }
         return prefix;
     }
+
+    public static String findPrefixBetweenTwoString(String s1,String s2){
+        String prefix = s1;
+        while(prefix.indexOf(s2)!=0){
+            prefix = prefix.substring(0,prefix.length()-1);
+            if(prefix.isEmpty()) return "";
+        }
+        return s1;
+    }
 }
