@@ -3,7 +3,14 @@ package Recurssion;
 public class PatternSolution {
     public static void main(String[] args) {
         printPattern(1,5);
+        System.out.println();
+        System.out.println();
         printP(1,1,5);
+        System.out.println();
+        System.out.println();
+        printP2(1,1,5);
+        System.out.println();
+        System.out.println();
     }
 
     // pattern using 2 function..
@@ -33,6 +40,20 @@ public class PatternSolution {
         }
         System.out.print(" *");
         printP(row,col+1,n);
+
+    }
+
+    // pattern using 1 function..
+
+    private static void printP2(int row,int col,int n){
+        if(row>n) return; // all row completed
+        if(col > n - row + 1){ // all star printed for row
+            System.out.println(); //now print new line and start new col for new line...
+            printP2(row+1,1,n);
+            return;
+        }
+        System.out.print(" *");
+        printP2(row,col+1,n);
 
     }
 }
