@@ -4,7 +4,9 @@ public class FindMazPath {
     public static void main(String[] args) {
         int m = 5, n = 5;  // Grid size
         int ans = find(0, 0, m, n, new StringBuilder());
+        // formula direct : (m+n-2)! / (m-1)!.(n-1)!
         System.out.println("Total Ans: " + ans);  // Total number of paths
+
     }
 
     // better solution.. this avoid the unnecessary recursive calls.
