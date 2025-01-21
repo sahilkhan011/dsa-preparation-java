@@ -5,14 +5,14 @@ import java.util.List;
 
 public class DecodeStringCodeAllPossibleWay {
     public static void main(String[] args) {
-        int number = 123;  // Example input
-        List<String> decodedStrings = decodeWays(number);
+        String code = "85121215";  // Example input
+        List<String> decodedStrings = decodeWays(code);
         System.out.println(decodedStrings);  // Output all possible decodings
     }
 
-    private static List<String> decodeWays(int code) {
+    private static List<String> decodeWays(String code) {
         List<String> ans = new ArrayList<>();
-        recurse(0,String.valueOf(code),new StringBuilder(),ans);
+        recurse(0,code,new StringBuilder(),ans);
         return  ans;
     }
 
