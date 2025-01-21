@@ -3,7 +3,7 @@ package Recurssion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DecodeStringCodeAllPosibleWay {
+public class DecodeStringCodeAllPossibleWay {
     public static void main(String[] args) {
         int number = 123;  // Example input
         List<String> decodedStrings = decodeWays(number);
