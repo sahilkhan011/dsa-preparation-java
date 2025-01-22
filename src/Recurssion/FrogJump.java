@@ -1,17 +1,16 @@
 package Recurssion;
 
-import java.util.Arrays;
-
 public class FrogJump {
 
-    // Original recursive solution (without modification)
+    // Recursive Approach
     public static int recurse(int i, int n, int[] stones) {
         // Base case: If frog reaches the last stone, no cost to move further
         if (i == n) return 0;
 
-        // If frog goes beyond the last stone, return a large value
+        // If frog goes beyond the last stone, return a large value to avoid this path
         if (i > n) return Integer.MAX_VALUE;
 
+        // Initialize two variables to store the minimum cost from two possible jumps
         int firstPath = Integer.MAX_VALUE;
         int secondPath = Integer.MAX_VALUE;
 
@@ -25,7 +24,7 @@ public class FrogJump {
             secondPath = Math.abs(stones[i] - stones[i + 2]) + recurse(i + 2, n, stones);
         }
 
-        // Return the minimum cost from both paths
+        // Return the minimum cost of both possible paths (i+1 or i+2)
         return Math.min(firstPath, secondPath);
     }
 
@@ -42,7 +41,7 @@ public class FrogJump {
             dp[j] = Integer.MAX_VALUE;
         }
 
-        // Loop through each stone to compute minimum cost
+        // Loop through each stone to compute the minimum cost
         for (int j = 0; j < n - 1; j++) {
             // If jumping to stone j+1 is possible and within bounds
             if (j + 1 < n) {
@@ -59,13 +58,16 @@ public class FrogJump {
     }
 
     public static void main(String[] args) {
-        int[] stones = {10, 20, 50, 40, 35, 50};  // Example input
-        int n = stones.length;
+        // Example input: stones array with values representing the cost at each stone
+        int[] stones = {10, 20, 50, 40, 35, 50};
+        int n = stones.length;  // Number of stones
 
-        // Call the recursive solution with memoization and print the result
-        System.out.println("Recursive (with memoization) solution result: " + recurse(0, n - 1, stones));
+        // Call the recursive solution and print the result
+        // The frog starts at stone 0 and needs to reach stone n-1
+        System.out.println("Recursive solution result: " + recurse(0, n - 1, stones));
 
         // Call the dynamic programming solution and print the result
+        // The frog starts at stone 0 and needs to reach stone n-1
         System.out.println("Dynamic Programming solution result: " + solveUsingDp(n, stones));
     }
 }
