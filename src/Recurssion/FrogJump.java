@@ -29,11 +29,43 @@ public class FrogJump {
         return Math.min(firstPath, secondPath);
     }
 
+    // Dynamic Programming approach
+    public static int solveUsingDp(int n, int[] stones) {
+        // DP array to store the minimum cost to reach each stone
+        int[] dp = new int[n];
+
+        // Base case: no cost to start at stone 0
+        dp[0] = 0;
+
+        // Initialize all other dp values to a very large number (maximum cost)
+        for (int j = 1; j < n; j++) {
+            dp[j] = Integer.MAX_VALUE;
+        }
+
+        // Loop through each stone to compute minimum cost
+        for (int j = 0; j < n - 1; j++) {
+            // If jumping to stone j+1 is possible and within bounds
+            if (j + 1 < n) {
+                dp[j + 1] = Math.min(dp[j + 1], dp[j] + Math.abs(stones[j] - stones[j + 1]));
+            }
+            // If jumping to stone j+2 is possible and within bounds
+            if (j + 2 < n) {
+                dp[j + 2] = Math.min(dp[j + 2], dp[j] + Math.abs(stones[j] - stones[j + 2]));
+            }
+        }
+
+        // Return the minimum cost to reach the last stone (stone n-1)
+        return dp[n - 1];
+    }
+
     public static void main(String[] args) {
         int[] stones = {10, 20, 50, 40, 35, 50};  // Example input
         int n = stones.length;
 
         // Call the recursive solution with memoization and print the result
         System.out.println("Recursive (with memoization) solution result: " + recurse(0, n - 1, stones));
+
+        // Call the dynamic programming solution and print the result
+        System.out.println("Dynamic Programming solution result: " + solveUsingDp(n, stones));
     }
 }
