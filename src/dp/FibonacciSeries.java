@@ -3,6 +3,7 @@ public class FibonacciSeries {
     public static void main(String[] args) {
         int res = find(8);
         System.out.println(res);
+
     }
 
     private static int find(int n) {
