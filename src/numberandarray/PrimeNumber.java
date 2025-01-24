@@ -35,15 +35,16 @@ public class PrimeNumber {
             return true; // 2 and 3 are prime numbers
         }
         if (num % 2 == 0) {
-            return false; // multiples are not prime
+            return false; // multiples of 2 are not prime
         }
 
-        // Check only odd numbers from 5 to sqrt(num), skipping multiples of 2 and 3
+        // Check only odd numbers from 5 to sqrt(num)
         for (int i = 3; i * i <= num; i += 2) {
-            if (num % i == 0 || num % (i + 2) == 0) {
-                return false;
+            if (num % i == 0) {
+                return false; // if divisible by any odd number, it's not prime
             }
         }
         return true;
     }
+
 }
