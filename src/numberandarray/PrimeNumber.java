@@ -25,4 +25,25 @@ public class PrimeNumber {
         }
         return true;
     }
+
+
+    private static boolean isPrimeNumberSecond(int num) {
+        if (num <= 1) {
+            return false; // 0 and 1 are not prime
+        }
+        if (num == 2 || num == 3) {
+            return true; // 2 and 3 are prime numbers
+        }
+        if (num % 2 == 0) {
+            return false; // multiples are not prime
+        }
+
+        // Check only odd numbers from 5 to sqrt(num), skipping multiples of 2 and 3
+        for (int i = 3; i * i <= num; i += 2) {
+            if (num % i == 0 || num % (i + 2) == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
