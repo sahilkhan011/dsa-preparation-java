@@ -45,4 +45,26 @@ public class CoinChange {
         int amount3 = 0;
         System.out.println("Minimum coins for amount " + amount3 + ": " + solution.coinChange(coins3, amount3));
     }
+
+    // Function to find the total number of ways to make change
+    public static int countWays(int[] coins, int amount) {
+        int n = coins.length;
+
+        // dp[i] will store the total number of ways to make change for i amount
+        int[] dp = new int[amount + 1];
+
+        // Base case: There is one way to make the amount 0 (using no coins)
+        dp[0] = 1;
+
+        // Iterate over all coins
+        for (int i = 0; i < n; i++) {
+            // Update dp[] for all values from coins[i] to amount
+            for (int j = coins[i]; j <= amount; j++) {
+                dp[j] += dp[j - coins[i]];
+            }
+        }
+
+        // The value at dp[amount] will be the answer
+        return dp[amount];
+    }
 }
