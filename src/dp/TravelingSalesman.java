@@ -41,6 +41,7 @@ public class TravelingSalesman {
 
         // Find the minimum cost to visit all cities and return to city 0
         for (int i = 1; i < n; i++) {
+
             if (dp[finalMask][i] != Integer.MAX_VALUE) {
                 result = Math.min(result, dp[finalMask][i] + dist[i][0]);
             }
