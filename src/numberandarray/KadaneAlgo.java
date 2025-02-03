@@ -1,0 +1,26 @@
+package numberandarray;
+
+public class KadaneAlgo {
+    public static void main(String[] args) {
+        int[] arr = {2, 3, -8, 7, -1, 2, 3};
+        int res = maxSubarraySum(arr);
+        System.out.println(res);
+    }
+
+    private static int maxSubarraySum(int[] arr) {
+        int res = arr[0];
+        int maxEnd = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+
+            // Find the maximum sum ending at index i by either extending
+            // the maximum sum subarray ending at index i - 1 or by
+            // starting a new subarray from index i
+            maxEnd = Math.max(maxEnd + arr[i], arr[i]);
+
+            // Update res if maximum subarray sum ending at index i > res
+            res = Math.max(res, maxEnd);
+        }
+
+        return res;
+    }
+}
