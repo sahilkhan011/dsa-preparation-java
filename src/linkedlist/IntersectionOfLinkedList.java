@@ -1,8 +1,10 @@
 package linkedlist;
 
 public class IntersectionOfLinkedList {
+
     // Function to get the intersection point of two linked lists
     static Node intersectPoint(Node head1, Node head2) {
+
         // Maintaining two pointers ptr1 and ptr2 at the heads of the lists
         Node ptr1 = head1;
         Node ptr2 = head2;
@@ -17,7 +19,6 @@ public class IntersectionOfLinkedList {
             ptr1 = (ptr1 != null) ? ptr1.next : head2;
             ptr2 = (ptr2 != null) ? ptr2.next : head1;
         }
-
         // Return the intersection node, or null if no intersection
         return ptr1;
     }
@@ -42,6 +43,7 @@ public class IntersectionOfLinkedList {
             System.out.println("-1");
         else
             System.out.println(intersectionPoint.data);
+
     }
 
     // Node class to define the structure of a linked list node
