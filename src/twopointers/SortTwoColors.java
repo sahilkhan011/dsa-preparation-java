@@ -9,16 +9,16 @@ public class SortTwoColors {
         }
     }
     // sort 0 and 1
-    public static void sort(int[] num){
-        int left = 0,right = num.length-1;
-        while(left<right){
-            if(num[left]==0) {
+    public static void sort(int[] num) {
+        int left = 0, right = num.length - 1;
+
+        while (left < right) {
+            if (num[left] == 0) {
                 left++;
-            }
-            if(num[right]==1){
+            } else if (num[right] == 1) {
                 right--;
-            }
-            if(num[left]!=0 && num[right]!=1){
+            } else {
+                // Swap 1 (left side) with 0 (right side)
                 int tmp = num[left];
                 num[left] = num[right];
                 num[right] = tmp;
