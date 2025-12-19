@@ -24,30 +24,30 @@ public class AnagramString {
         return true;
     }
     private static boolean isAnagramsByMap(String str1,String str2){
+
+        // edge case
+        if(str1.length()!=str2.length()) return false;
+
+        // define map to keep track of occurance of character
         HashMap<Character,Integer> map = new HashMap<>();
 
+        // iterate through the first given string
         for (int i = 0; i < str1.length(); i++) {
-            if(map.containsKey(str1.charAt(i))){
-               int val = map.get(str1.charAt(i))+1;
-               map.replace(str1.charAt(i),val);
-            }
-            else{
-                map.put(str1.charAt(i),1);
-            }
-
-            if(map.containsKey(str2.charAt(i))){
-                int val = map.get(str2.charAt(i))-1;
-                map.replace(str2.charAt(i),val);
-            }
-            else{
-                map.put(str2.charAt(i),-1);
-            }
-
+            char c = str1.charAt(i);
+            map.put(c, map.getOrDefault(c,0)+1);
         }
-        for (Character key : map.keySet()){
-            if(map.get(key) != 0) return false;
+
+
+        // iterate through the second given string
+        for (int i = 0; i < str2.length(); i++) {
+            char c = str2.charAt(i);
+            if (!map.containsKey(c)) return false;
+            map.put(c,map.get(c)-1);
+            if(map.get(c)==0){
+                map.remove(c);
+            }
         }
-        return true;
+        return map.isEmpty();
     }
 
 
