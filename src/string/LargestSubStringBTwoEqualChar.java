@@ -51,4 +51,43 @@ public class LargestSubStringBTwoEqualChar {
         String testString4 = "abcdedcba";
         System.out.println("Max length between equal characters for " + testString4 + ": " + obj.maxLengthBetweenEqualCharacters(testString4));
     }
+
+
+    // most fav approach
+    // first reverse whole array..
+    // than reverse each word..
+    // than reverse last remember word
+
+    public static String reverseWordsUsingReverseApproach(String str){
+        char [] arr = str.toCharArray();
+
+        // reverse whole string
+        reverse(arr,0,arr.length-1);
+
+        int l = 0;
+        for (int r = 0; r < arr.length; r++) {
+            if(arr[r]==' '){
+                // reverse each word
+                reverse(arr,l,r-1);
+                l=r+1;
+            }
+        }
+
+        // reverse last word
+        reverse(arr,l,arr.length-1);
+
+        return new String(arr);
+    }
+    public static void reverse(char[] arr, int left, int right){
+        while(left<right){
+
+            char temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            left++;
+            right--;
+
+        }
+    }
 }
