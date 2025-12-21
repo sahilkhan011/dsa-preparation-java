@@ -8,7 +8,6 @@ public class Problem10 {
 
         String str = "sahil khan";
 
-
         // this is not optimal because of immutability of string
 
         String reversed = str.chars()
