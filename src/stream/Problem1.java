@@ -22,18 +22,23 @@ public class Problem1 {
     }
 
     private static void solution(String str) {
+
+        // Converts the String into an IntStream of character ASCII values
         IntStream inputStream = str.chars();
 
+        // Converts IntStream into Stream<Character>
         Stream<Character> stream =
                 inputStream.mapToObj(c -> (char) c);
 
+        // Groups characters and counts their occurrences
         Map<Character, Long> result =
                 stream.collect(Collectors.groupingBy(
-                        Function.identity(),
-                        Collectors.counting()
+                        Function.identity(),     // character itself as the key
+                        Collectors.counting()    // counts occurrences of each character
                 ));
 
+        // Prints the character frequency map
         System.out.println(result);
-
     }
+
 }
