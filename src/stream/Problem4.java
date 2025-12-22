@@ -16,7 +16,7 @@ public class Problem4 {
                 .min(Integer::compareTo).orElse(Integer.MIN_VALUE);
 
         int max = list.stream()
-                .max(Integer::compareTo).orElse(Integer.MAX_VALUE);
+                .max(Integer::compareTo).orElse(Integer.MIN_VALUE);
 
         System.out.println("min value is : "+ min);
         System.out.println("max value is : "+ max);
